@@ -1,8 +1,8 @@
 from flask_sqlalchemy import SQLAlchemy
 from marshmallow import Schema, fields, pre_load, validate
 from flask_marshmallow import Marshmallow
-
-db = SQLAlchemy()
+from . import db
+# db = SQLAlchemy()
 ma = Marshmallow()
 
 class Book(db.Model):

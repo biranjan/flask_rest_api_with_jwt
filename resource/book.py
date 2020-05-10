@@ -1,5 +1,8 @@
 from flask import Blueprint, Response, request,jsonify
-from models import Book
+import sys
+
+sys.path.append('..')
+from models.BookModel import Book
 from flask_restful import Resource
 
 
@@ -25,10 +28,7 @@ class BooksApi(Resource):
         book = Book.query.filter_by(id=id).first()
         return jsonify(book.serialize())
 
-def initializeRoutes(api_=BooksApi()):
-    from .book import BooksApi
-    api_.add_resource(BooksApi, '/books')
-    api_.add_resource(BooksApi,'/books/<id>')
+
 
 
 #books = Blueprint('books', __name__)

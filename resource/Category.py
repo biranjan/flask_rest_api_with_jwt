@@ -1,6 +1,8 @@
 from flask import request
 from flask_restful import Resource
-from models import db, Category, CategorySchema
+import sys
+sys.path.append('..')
+from models import Category, CategorySchema
 from flask import Blueprint, Response, request,jsonify
 
 categories_schema = CategorySchema(many=True)
