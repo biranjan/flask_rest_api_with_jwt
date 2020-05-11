@@ -13,17 +13,12 @@ class Config(object):
     SECRET_KEY = 'this-really-needs-to-be-changed'
     SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
 
-
 class ProductionConfig(Config):
     DEBUG = False
-
 
 class StagingConfig(Config):
     DEVELOPMENT = True
     DEBUG = True
-  
-
-
 
 class DevelopmentConfig(Config):
     DEVELOPMENT = True
@@ -31,8 +26,6 @@ class DevelopmentConfig(Config):
     SECRET_KEY = 'super-secret'
     SQLALCHEMY_DATABASE_URI = f'postgresql://{dbuser}:{dbpass}@{dbhost}/{dbname}'  # os.environ['DATABASE_URL']
     #SQLALCHEMY_DATABASE_URI = "postgresql://username:password@localhost/database_name"
-
-
 
 class TestingConfig(Config):
     TESTING = True
